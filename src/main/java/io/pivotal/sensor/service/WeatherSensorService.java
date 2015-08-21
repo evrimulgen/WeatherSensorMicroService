@@ -9,7 +9,7 @@ public interface WeatherSensorService {
 
 	Weather saveWeatherSensorReading(Weather weather);
 	List<Weather> findBySensorID(String sensorID);
-	Weather findWeatherSensorReading(String sensorID, Date startTime, Date endTime);
+	List<Weather> findWeatherSensorReading(String sensorID, Date startTime, Date endTime);
 	Weather findWeatherSensorReadingAfterDate(String sensorID, Date time);
 	Weather findWeatherSensorReadingBeforeDate(String sensorID, Date time);
 	

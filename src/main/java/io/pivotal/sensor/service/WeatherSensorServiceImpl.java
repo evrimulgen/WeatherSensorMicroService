@@ -26,7 +26,7 @@ public class WeatherSensorServiceImpl implements WeatherSensorService {
 	}
 
 	@Override
-	public Weather findWeatherSensorReading(String sensorID, Date startTime, Date endTime) {
+	public List<Weather> findWeatherSensorReading(String sensorID, Date startTime, Date endTime) {
 		return repository.findBySensorIDAndEventTimeBetween(sensorID, startTime, endTime);
 	}
 

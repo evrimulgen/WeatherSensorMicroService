@@ -7,6 +7,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
+        
     }
 }
 
@@ -14,6 +16,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'io.spring.dependency-management'
 
 
 jar {
@@ -25,6 +28,7 @@ targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 configurations {
@@ -34,6 +38,10 @@ configurations {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-amqp")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+       compile("org.springframework.cloud:spring-cloud-starter-eureka-client")
+       compile("com.netflix.hystrix:hystrix-core:1.4.14")
+        compile("org.springframework.cloud:spring-cloud-starter-config")
+    
 	//compile("org.springframework.boot:spring-boot-starter-cloud-connectors")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
@@ -46,5 +54,5 @@ eclipse {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    gradleVersion = '2.3'
 }
